@@ -1,0 +1,169 @@
+body {
+    background: rgba(14, 102, 140, 0.34);
+    mix-blend-mode: multiply;
+}
+
+.title {
+    position: absolute;
+    width: 93px;
+    height: 34px;
+    left: 17px;
+    top: 10px;
+
+    font-family: 'Lexend';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 20px;
+    letter-spacing: 0.2em;
+
+    color: #000000;
+}
+
+.firstHalf {
+    /* Rectangle 7 */
+
+    position: absolute;
+    width: 350px;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+
+    background: #44AFDD;
+    opacity: 0.9;
+}
+
+.secondHalf {
+    position: relative;
+}
+
+.add-thread {
+
+    position: absolute;
+    width: 241px;
+    height: 34px;
+    left: 55px;
+    top: 139px;
+
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 35px;
+}
+
+.add-thread a {
+    text-decoration: none;
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    left: 40px;
+    top: 5px;
+
+    font-family: 'Lexend';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 15px;
+
+    /* identical to box height */
+    letter-spacing: 0.1em;
+    color: #000000;
+}
+
+.display-thread {
+    position: absolute;
+    width: 241px;
+    height: 34px;
+    left: 55px;
+    top: 190px;
+
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 35px;
+}
+
+.display-thread a {
+    text-decoration: none;
+    position: absolute;
+    width: 166px;
+    height: 20px;
+    left: 22px;
+    top: 7px;
+
+    font-family: 'Lexend';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 15px;
+
+    /* identical to box height */
+    letter-spacing: 0.1em;
+
+    color: #FFFFFF;
+}
+
+
+.logOut {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 107px;
+    height: 33px;
+    left: 1162px;
+    top: 11px;
+
+    background: #2494c3;
+    /* border: 1px solid #007AAF; */
+    border-radius: 60px;
+}
+
+.logOut a {
+    text-decoration: none;
+    /* position: absolute;
+    width: 107px;
+    height: 33px;
+    left: 1162px;
+    top: 11px; */
+
+    font-family: 'Lexend';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1em;
+
+    color: #ffffff;
+}
+
+/* inorder to enter the logo of the page */
+.larryBird {
+    position: absolute;
+    width: 216px;
+    height: 159px;
+    left: 137px;
+    top: 361px;
+
+    /* background: url('/assets/twitter-logo.png'); */
+    mix-blend-mode: screen;
+    opacity: 0.4;
+}
+
+#category {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 712.73px;
+    height: 43px;
+    left: 446px;
+    top: 93px;
+
+
+    border: 1px solid #007AAF;
+    border-radius: 61px;
+
+    font-family: 'Lexend';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 25px;
+    letter-spacing: 0.2em;
+
+    color: #007AAF;
+}
