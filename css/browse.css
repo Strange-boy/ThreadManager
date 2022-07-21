@@ -24,7 +24,7 @@ body {
     /* Rectangle 7 */
 
     position: absolute;
-    width: 350px;
+    width: 291px;
     height: 100%;
     left: 0px;
     top: 0px;
@@ -40,13 +40,14 @@ body {
 .add-thread {
 
     position: absolute;
-    width: 241px;
+    width: 182px;
     height: 34px;
     left: 55px;
     top: 139px;
 
     background: rgba(255, 255, 255, 0.5);
     border-radius: 35px;
+    border-style: none;
 }
 
 .add-thread a {
@@ -69,14 +70,16 @@ body {
 }
 
 .display-thread {
+    align-items: center;
     position: absolute;
-    width: 241px;
+    width: 182px;
     height: 34px;
     left: 55px;
     top: 190px;
 
     background: rgba(0, 0, 0, 0.5);
     border-radius: 35px;
+    border-style: none;
 }
 
 .display-thread a {
@@ -112,6 +115,7 @@ body {
     background: #2494c3;
     /* border: 1px solid #007AAF; */
     border-radius: 60px;
+    border-style: none;
 }
 
 .logOut a {
@@ -137,8 +141,8 @@ body {
     position: absolute;
     width: 216px;
     height: 159px;
-    left: 137px;
-    top: 361px;
+    left: 43px;
+    top: 277px;
 
     /* background: url('/assets/twitter-logo.png'); */
     mix-blend-mode: screen;
