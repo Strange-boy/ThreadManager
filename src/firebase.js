@@ -1,10 +1,8 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-app.js";
+import { getFirestore, getDocs, collection, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-firestore.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 // Your web app's Firebase configuration
-import { getFirestore, getDocs, collection, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-firestore.js";
-
 
 const firebaseConfig = {
     apiKey: "AIzaSyBihK0GRqKruAiYqmGdBT51qD33pIe4OCo",
@@ -31,7 +29,7 @@ function getInputVal(id) {
 }
 
 
-async function  submitForm(e) {
+async function submitForm(e) {
     e.preventDefault();
     // console.log("hello world");
     var link = getInputVal("linkAddition");
@@ -39,7 +37,9 @@ async function  submitForm(e) {
 
     // Add a new document in collection "cities"
     await setDoc(doc(db, "threadMan", "users"), {
-        
+        category:{
+            category:category[link]
+        }
     });
 }
 

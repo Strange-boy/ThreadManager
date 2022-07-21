@@ -10,7 +10,6 @@ function submitForm(e) {
     var link = getInputVal("linkAddition");
     var category = getInputVal("addingCategory");
 
-    // Add a new document in collection "cities"
     db.collection("Thread-Manager").doc("users").set({
         category:category,
         link: link
