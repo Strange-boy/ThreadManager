@@ -1,5 +1,5 @@
 body {
-    background: rgba(14, 102, 140, 0.34);
+    background: rgb(255, 255, 255);
     mix-blend-mode: multiply;
 }
 
@@ -107,16 +107,19 @@ body {
     box-sizing: border-box;
 
     position: absolute;
-    width: 107px;
+    width: 100px;
     height: 33px;
-    left: 1162px;
-    top: 11px;
+    left: 1253px;
+    top: 3px;
 
-    background: #2494c3;
+    background: #5372F0;
     /* border: 1px solid #007AAF; */
     border-radius: 60px;
     border-style: none;
 }
+.logOut:hover{
+    background: #2c52ed;
+  }
 
 .logOut a {
     text-decoration: none;
