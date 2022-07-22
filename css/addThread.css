@@ -1,5 +1,5 @@
 body {
-    background: rgba(14, 102, 140, 0.34);
+    background: rgb(255, 255, 255);
     mix-blend-mode: multiply;
 }
 
@@ -29,7 +29,7 @@ body {
     left: 0px;
     top: 0px;
 
-    background: #44AFDD;
+    background: #1099bb;
     opacity: 0.9;
 }
 
@@ -49,7 +49,9 @@ body {
     border-radius: 35px;
     border-style: none;
 }
-
+.add-thread:hover{
+    background: #2c52ed;
+}
 .add-thread a {
     text-decoration: none;
     position: absolute;
@@ -133,11 +135,10 @@ body {
 
 .insideRectangle {
     position: absolute;
-    width: 650px;
+    width: 679px;
     height: 300px;
-    left: 558px;
-    top: 110px;
-
+    left: 517px;
+    top: 131px;
     background: #d5d5d5;
     opacity: 0.6;
     border-radius: 60px;
@@ -195,10 +196,10 @@ body {
     box-sizing: border-box;
 
     position: absolute;
-    width: 107px;
-    height: 33px;
-    left: 250px;
-    top: 200px;
+    width: 82px;
+    height: 25px;
+    left: 454px;
+    top: 206px;
 
     background: #FFFFFF;
     border: 1px solid #FFFFFF;
@@ -218,16 +219,19 @@ body {
     box-sizing: border-box;
 
     position: absolute;
-    width: 107px;
+    width: 100px;
     height: 33px;
-    left: 1162px;
-    top: 11px;
+    left: 1253px;
+    top: 3px;
 
-    background: #2494c3;
+    background: #5372F0;
+    /* border: 1px solid #007AAF; */
     border-radius: 60px;
     border-style: none;
 }
-
+.logOut:hover{
+    background: #2c52ed;
+  }
 .logOut a {
     text-decoration: none;
     /* position: absolute;
