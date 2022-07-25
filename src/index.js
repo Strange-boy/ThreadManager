@@ -1,10 +1,15 @@
 import { initializeApp } from "firebase/app";
+
 import {
     createUserWithEmailAndPassword,
     getAuth,
     onAuthStateChanged,
     signOut, signInWithEmailAndPassword
 } from 'firebase/auth'
+
+import{
+    getFirestore 
+} from 'firebase/firestore'
 
 
 const firebaseConfig = {
@@ -24,6 +29,10 @@ const app = initializeApp(firebaseConfig);
 // console.log(app);
 
 const auth = getAuth();
+
+// Initialize Cloud Firestore and get a reference to the service
+const db = getFirestore(app);
+
 
 const routes = {
     "login": "/public/",
@@ -63,7 +72,7 @@ if (currentRoute === routes.signup) {
     signupSubmit.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        console.log("hello");
+        // console.log("hello");
         const emailSign = document.querySelector('#signupEmail').value;
         const passwordSign = document.querySelector('#signupPassword').value;
         // console.log(emailSign);
@@ -116,6 +125,8 @@ if (currentRoute === routes.login) {
 
 //inorder to perform the logout function in the add thread page
 if (currentRoute === routes.home) {
+
+    //inorder to add the logout functionality for the user
     const logout = document.querySelector(".logOut")
     logout.addEventListener("click", () => {
         const auth = getAuth();
@@ -129,6 +140,9 @@ if (currentRoute === routes.home) {
             alert(errorCode);
         });
     })
+
+    //inorder to enable the user to add the thread of his choice
+
 }
 
 //inorder to perform the logout function in the browse thread page
