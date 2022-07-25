@@ -14,7 +14,7 @@
   <img src="/assets/im-removebg-preview.png" height = "50" id = "larryBird">
     <header>Sign up</header>
 
-		<form action="#">
+		<form action="#" id = "signupform">
       <div class="field email">
         <div class="input-area">
           <input type="text" placeholder="Full Name">
@@ -25,7 +25,7 @@
       </div>
       <div class="field email">
         <div class="input-area">
-          <input type="text" placeholder="e-mail">
+          <input type="text" placeholder="e-mail" id = "signupEmail">
           <i class="icon fas fa-envelope"></i>
           <i class="error error-icon fas fa-exclamation-circle"></i>
         </div>
@@ -41,7 +41,7 @@
       </div>
       <div class="field email">
         <div class="input-area">
-          <input type="text" placeholder="Username">
+          <input type="text" placeholder="Username" id = "signupUsername">
           <i class="icon fas fa-envelope"></i>
           <i class="error error-icon fas fa-exclamation-circle"></i>
         </div>
@@ -49,7 +49,7 @@
       </div>
       <div class="field password">
         <div class="input-area">
-          <input type="password" placeholder="Password">
+          <input type="password" placeholder="Password" id = "signupPassword">
           <i class="icon fas fa-lock"></i>
           <i class="error error-icon fas fa-exclamation-circle"></i>
         </div>
@@ -63,17 +63,17 @@
         <div class="error error-txt">Password can't be blank</div>
       </div>
       
-      <input type="submit" value="Sign Up">
+      <input type="submit" value="Sign Up" id = "signupSubmit">
       </form>
     </form>
     
   </div>
 </div>
   <script src="/src/login.js"></script>
+  <script src="../dist/bundle.js" type = "module"></script>
 
 
 </body>
-
 </html>
 
     

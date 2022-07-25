@@ -109,17 +109,18 @@ body {
     position: absolute;
     width: 100px;
     height: 33px;
-    left: 1253px;
-    top: 3px;
+    left: 1166px;
+    top: 19px;
 
     background: #5372F0;
     /* border: 1px solid #007AAF; */
     border-radius: 60px;
     border-style: none;
 }
-.logOut:hover{
+
+.logOut:hover {
     background: #2c52ed;
-  }
+}
 
 .logOut a {
     text-decoration: none;
