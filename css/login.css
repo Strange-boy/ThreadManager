@@ -157,3 +157,20 @@ form input[type="submit"]{
 form input[type="submit"]:hover{
   background: #2c52ed;
 }
+
+form input[type="button"] {
+  top: 10px;
+  height: 50px;
+  margin-top: 10px;
+  color: #fff;
+  padding: 0;
+  border: none;
+  background: #5372f0;
+  cursor: pointer;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+form input[type="button"]:hover {
+  background: #2c52ed;
+}

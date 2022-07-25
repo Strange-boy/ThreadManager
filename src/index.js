@@ -6,15 +6,6 @@ import {
     signOut, signInWithEmailAndPassword
 } from 'firebase/auth'
 
-const routes = {
-    "login": "/public/",
-    "home": "/public/addthread.html",
-    "browseThread": "/public/browse.html",
-    "signup": "/public/signup.html"
-}
-const currentRoute = window.location.pathname
-
-const redirect = (path) => window.location.pathname = path
 
 const firebaseConfig = {
     apiKey: "AIzaSyBihK0GRqKruAiYqmGdBT51qD33pIe4OCo",
@@ -33,6 +24,16 @@ const app = initializeApp(firebaseConfig);
 // console.log(app);
 
 const auth = getAuth();
+
+const routes = {
+    "login": "/public/",
+    "home": "/public/addthread.html",
+    "browseThread": "/public/browse.html",
+    "signup": "/public/signup.html"
+}
+const currentRoute = window.location.pathname
+
+const redirect = (path) => window.location.pathname = path
 
 //inorder to check the current state of the users
 window.addEventListener("DOMContentLoaded", () => {
@@ -75,9 +76,17 @@ if (currentRoute === routes.signup) {
                 redirect("/public/addthread.html")
             })
             .catch((err) => {
-                console.log(err.message);
+                // console.log(err.message);
+                alert(err.message);
             })
     });
+
+    const redirectToLogin = document.querySelector('#singupLogin');
+    // console.log(redirectToLogin);
+    redirectToLogin.addEventListener('click',(e) => {
+        e.preventDefault();
+        document.location.pathname = routes.login;
+    })
 }
 
 //inorder to perform login function
@@ -99,10 +108,10 @@ if (currentRoute === routes.login) {
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                console.log(errorMessage);
+                alert(errorCode);
             });
-
     })
+
 }
 
 //inorder to perform the logout function in the add thread page
@@ -116,7 +125,8 @@ if (currentRoute === routes.home) {
             redirect(routes.login)
         }).catch((error) => {
             // An error happened.
-            console.log(error)
+            const errorCode = error.code;
+            alert(errorCode);
         });
     })
 }
