@@ -1,25 +1,26 @@
+let curr_uid = ""
 import { initializeApp } from "firebase/app";
-
 import {
     createUserWithEmailAndPassword,
     getAuth,
     onAuthStateChanged,
-    signOut, signInWithEmailAndPassword
+    signOut, signInWithEmailAndPassword, browserLocalPersistence,
 } from 'firebase/auth'
 
-import{
-    getFirestore 
+import {
+    getFirestore, doc, getDocs, onSnapshot,
+    setDoc, addDoc, updateDoc,
+    collection, query, where
 } from 'firebase/firestore'
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBihK0GRqKruAiYqmGdBT51qD33pIe4OCo",
-    authDomain: "threadman-66d1c.firebaseapp.com",
-    databaseURL: "https://threadman-66d1c-default-rtdb.firebaseio.com",
-    projectId: "threadman-66d1c",
-    storageBucket: "threadman-66d1c.appspot.com",
-    messagingSenderId: "184889305905",
-    appId: "1:184889305905:web:f29e4b2003fecb15bb1e10"
+    apiKey: "AIzaSyBlS8VgfBereAPgMAuwNP1CoMz2jf1WdNA",
+    authDomain: "thread-manager-b1ea8.firebaseapp.com",
+    projectId: "thread-manager-b1ea8",
+    storageBucket: "thread-manager-b1ea8.appspot.com",
+    messagingSenderId: "349428523788",
+    appId: "1:349428523788:web:445f54a31bb9bae483df29"
 };
 
 
@@ -33,7 +34,6 @@ const auth = getAuth();
 // Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore(app);
 
-
 const routes = {
     "login": "/public/",
     "home": "/public/addthread.html",
@@ -46,18 +46,17 @@ const redirect = (path) => window.location.pathname = path
 
 //inorder to check the current state of the users
 window.addEventListener("DOMContentLoaded", () => {
-    console.log("hello")
+
     onAuthStateChanged(auth, (user) => {
         if (user) {
             // User is signed in, see docs for a list of available properties
             // https://firebase.google.com/docs/reference/js/firebase.User
-            const uid = user.uid;
-            if (!uid) redirect(routes.login)
-            // ...
+            curr_uid = user.uid;
+
         } else {
             // User is signed out
-            // ...
-            if (currentRoute !== routes.login && currentRoute !== routes.signup) 
+
+            if (currentRoute !== routes.login && currentRoute !== routes.signup)
                 redirect(routes.login)
         }
     });
@@ -75,13 +74,11 @@ if (currentRoute === routes.signup) {
         // console.log("hello");
         const emailSign = document.querySelector('#signupEmail').value;
         const passwordSign = document.querySelector('#signupPassword').value;
-        // console.log(emailSign);
-        // console.log(passwordSign);
+
 
         createUserWithEmailAndPassword(auth, emailSign, passwordSign)
             .then((cred) => {
-                console.log("credential of user:", cred.user);
-                // window.location.href = "../public/addthread.html";
+                // console.log("credential of user:", cred.user);
                 redirect("/public/addthread.html")
             })
             .catch((err) => {
@@ -92,7 +89,7 @@ if (currentRoute === routes.signup) {
 
     const redirectToLogin = document.querySelector('#singupLogin');
     // console.log(redirectToLogin);
-    redirectToLogin.addEventListener('click',(e) => {
+    redirectToLogin.addEventListener('click', (e) => {
         e.preventDefault();
         document.location.pathname = routes.login;
     })
@@ -106,8 +103,6 @@ if (currentRoute === routes.login) {
         e.preventDefault();
         const emailSign = document.querySelector('#loginEmail').value;
         const passwordSign = document.querySelector('#loginPassword').value;
-        // console.log(emailSign);
-        // console.log(passwordSign);
         signInWithEmailAndPassword(auth, emailSign, passwordSign)
             .then((userCredential) => {
                 // Signed in 
@@ -141,7 +136,26 @@ if (currentRoute === routes.home) {
         });
     })
 
-    //inorder to enable the user to add the thread of his choice
+    //event listener pointing to the submit button
+    const addthreads = document.querySelector('#add-thread');
+    // console.log(addthreads);
+    addthreads.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const linkAdded = addthreads.link.value;
+        const categoryAdded = addthreads.category.value;
+
+        const userRef = collection(db, "users", curr_uid, categoryAdded);
+
+        addDoc(userRef, {
+            link: linkAdded
+        })
+            .then(() => {
+                alert('Tweemae saved the link');
+            })
+            .catch((error) => {
+                console.log(error.message);
+            })
+    })
 
 }
 
@@ -158,6 +172,35 @@ if (currentRoute === routes.browseThread) {
             console.log(error)
         });
     })
+
+    const browse = document.querySelector('#browseThread')
+    browse.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        // console.log("hello")
+        const category = browse.cat.value;
+        // console.log(category);
+
+        // const q = getDocs(collection(db, "users"));
+
+        // onSnapshot(q, (snapshot) => {
+        //     let people = [];
+        //     snapshot.docs.forEach((doc) => {
+        //         people.push({ ...doc.data(), id: doc.id })
+        //     })
+        //     console.log(people);
+        // })
+        // .then(() =>{
+        //     alert("search completed successfully");
+        // })
+        // .catch((error) => {
+        //     console.log(error.message);
+        // })
+
+        const querySnapshot = getDocs(doc(collection(db, "users",curr_uid,category)));
+        console.log(querySnapshot)
+    })
+
 }
 
 

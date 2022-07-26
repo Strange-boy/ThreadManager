@@ -213,6 +213,7 @@ body {
 
     /* identical to box height */
     letter-spacing: 0.1em;
+    cursor:pointer;
 }
 
 .logOut {
