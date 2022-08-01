@@ -45,20 +45,23 @@ body {
     left: 55px;
     top: 139px;
 
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
     background: rgba(0, 0, 0, 0.5);
     border-radius: 35px;
     border-style: none;
 }
+
 .add-thread:hover{
-    background: #2c52ed;
+    filter: brightness(.8);
 }
 .add-thread a {
     text-decoration: none;
-    position: absolute;
     width: 100px;
     height: 20px;
-    left: 40px;
-    top: 5px;
+    
 
     font-family: 'Lexend';
     font-style: normal;
@@ -79,6 +82,8 @@ body {
     left: 55px;
     top: 190px;
 
+    display:grid;
+    place-items: center;
     background: rgba(255, 255, 255, 0.5);
     border-radius: 35px;
     border-style: none;
@@ -86,11 +91,11 @@ body {
 
 .display-thread a {
     text-decoration: none;
-    position: absolute;
+    /* position: absolute; */
     width: 166px;
     height: 20px;
-    left: 22px;
-    top: 7px;
+    /* left: 22px;
+    top: 7px; */
 
     font-family: 'Lexend';
     font-style: normal;
@@ -102,6 +107,10 @@ body {
     letter-spacing: 0.1em;
 
     color: #000000;
+}
+
+.display-thread:hover{
+    filter: brightness(.8);
 }
 
 /* inorder to enter the logo of the page */
