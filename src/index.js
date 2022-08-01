@@ -1,12 +1,12 @@
 let curr_uid = "";
 import { initializeApp } from "firebase/app";
+
 import {
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
   signOut,
   signInWithEmailAndPassword,
-  browserLocalPersistence,
 } from "firebase/auth";
 
 import {
