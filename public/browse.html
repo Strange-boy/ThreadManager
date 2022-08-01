@@ -7,29 +7,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/browse.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
     <title>Document</title>
 </head>
 
 <body>
-    <div class = "firstHalf">
-        <div class = "title">Tweemae</div>
-        <button class = "add-thread"><a href="addthread.html">Add Thread</a></button>
-        <button class = "display-thread"><a href="#">Display thread</a></button>
+    <div class="firstHalf">
+        <div class="title">Tweemae</div>
+        <button class="add-thread"><a href="addthread.html">Add Thread</a></button>
+        <button class="display-thread"><a href="#">Display thread</a></button>
 
         <!-- inorder to bring the bird image -->
-        <img src="/assets/Twitter-logo.png" alt="" class = "larryBird">
+        <img src="/assets/Twitter-logo.png" alt="" class="larryBird">
     </div>
-    
+
     <!--category bar for search the threads  -->
-    <form id = "browseThread" class = "browse">
-        <input type="text" placeholder = "   Category" id = "category" name = "cat">
-        <input type="submit" value = "srch" id = "searchButton" class  = "search">
+    <form id="browseThread" class="browse">
+        <input type="text" placeholder="   Category" id="category" name="cat">
+        <input type="submit" value="srch" id="searchButton" class="search">
     </form>
     <!-- log out button for browsing page -->
-    <button class = "logOut"><a href="#">Log out</a></button>
-    <script src = "../dist/bundle.js" type="module"> </script> 
+    <button class="logOut"><a href="#">Log out</a></button>
+    <div class="tweet-content">
+        <blockquote class="twitter-tweet">
+            <p lang="en" dir="ltr">Happy Monday, folks. <a href="https://t.co/UIqjJs68at">pic.twitter.com/UIqjJs68at</a>
+            </p>&mdash; Web Design Ledger (@webdesignledger) <a
+                href="https://twitter.com/webdesignledger/status/1302923793514422272?ref_src=twsrc%5Etfw">September 7,
+                2020</a>
+        </blockquote>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+    <script src="../dist/bundle.js" type="module"> </script>
 
-    
 </body>
-</html>
 
+</html>

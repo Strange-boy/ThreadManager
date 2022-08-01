@@ -192,3 +192,14 @@ body {
     width: 40px;
     
 }
+
+.tweet-content {
+    background-color: rgb(111, 216, 204);
+    border: 2px solid red;
+    position: relative;
+    height: 70vh;
+    left: 333px;
+    top: 154px;
+    width: 70%;
+    overflow: scroll;
+}

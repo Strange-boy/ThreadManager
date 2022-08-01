@@ -146,6 +146,7 @@ if (currentRoute === routes.home) {
     e.preventDefault();
     const linkAdded = addthreads.link.value;
     const categoryAdded = addthreads.category.value;
+    console.log(linkAdded);
 
     const userRef = collection(db, "users", curr_uid, categoryAdded);
 
@@ -156,7 +157,7 @@ if (currentRoute === routes.home) {
         alert("Tweemae saved the link");
       })
       .catch((error) => {
-        console.log(error.message);
+        console.log(error);
       });
   });
 }
@@ -181,28 +182,37 @@ if (currentRoute === routes.browseThread) {
   browse.addEventListener("click", (e) => {
     e.preventDefault();
 
-    // console.log("hello")
     const category = browse.cat.value;
-    // console.log(category);
+    const colRef = collection(db, "users", curr_uid, category);
 
-    const colRef = collection(db, "users",curr_uid,category);
+    // const convtLink = linkAdded.replaceAll("//","_");
+    // console.log(convtLink)
+    // const userRef = collection(db, "users", curr_uid, convtLink);
+
 
     // Create a query against the collection.
+
     const q = query(colRef, where("link", "!=", ""));
+    let people = [];
+
 
     onSnapshot(q, (snapshot) => {
-      let people = [];
       snapshot.docs.forEach((doc) => {
-        people.push({ ...doc.data(), id: doc.id });
+        people.push({ ...doc.data() });
       });
-      console.log(people);
-    })
-    //   .then(() => {
-    //     console.log("search completed successfully");
-    //   })
-    //   .catch((error) => {
-    //     console.log(error.message);
-    //   });
 
+      console.log(people);
+
+      let tweetContent = people.map((tweets) => {
+        return tweets.link;
+      }).join(" ");
+
+      console.log(tweetContent);
+
+      let tweetHtmlPage = document.querySelector('.tweet-content');
+      tweetHtmlPage.innerHTML = tweetContent;
+    })
+
+    console.log("hello")
   });
 }
