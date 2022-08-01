@@ -1,4 +1,4 @@
-let curr_uid = "";
+
 import { initializeApp } from "firebase/app";
 
 import {
@@ -6,6 +6,7 @@ import {
   getAuth,
   onAuthStateChanged,
   signOut,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
 } from "firebase/auth";
 
@@ -46,9 +47,10 @@ const routes = {
   home: "/public/addthread.html",
   browseThread: "/public/browse.html",
   signup: "/public/signup.html",
+  forgotPassword: "/public/forgotPassword.html"
 };
 const currentRoute = window.location.pathname;
-
+let curr_uid = "";
 const redirect = (path) => (window.location.pathname = path);
 
 //inorder to check the current state of the users
@@ -61,11 +63,12 @@ window.addEventListener("DOMContentLoaded", () => {
     } else {
       // User is signed out
 
-      if (currentRoute !== routes.login && currentRoute !== routes.signup)
+      if (currentRoute !== routes.login && currentRoute !== routes.signup && currentRoute !== routes.forgotPassword)
         redirect(routes.login);
     }
   });
 });
+
 
 //inorder to direct the new users to add thread page
 if (currentRoute === routes.signup) {
@@ -118,6 +121,32 @@ if (currentRoute === routes.login) {
         alert(errorCode);
       });
   });
+
+}
+
+//function to be performed when a user forgets his/her password
+if (currentRoute === routes.forgotPassword) {
+  let sentMail = document.querySelector('#resetPassword');
+  // console.log(sentMail);
+  sentMail.addEventListener('click', sendResetMail);
+
+  function sendResetMail(e) {
+    e.preventDefault();
+    const sendEmail = document.querySelector('#mail');
+    const email = sendEmail.value;
+
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        alert("Password reset mail has been sent");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        
+        console.log(errorMessage);
+      });
+
+  }
 }
 
 //inorder to perform the logout function in the add thread page
@@ -128,8 +157,7 @@ if (currentRoute === routes.home) {
     const auth = getAuth();
     signOut(auth)
       .then(() => {
-        // Sign-out successful.
-        console.log("bei");
+        // Sign-out successfully
         redirect(routes.login);
       })
       .catch((error) => {
@@ -219,27 +247,24 @@ if (currentRoute === routes.browseThread) {
 
       function loadJS(FILE_URL, async = true) {
         let scriptEle = document.createElement("script");
-      
+
         scriptEle.setAttribute("src", FILE_URL);
         scriptEle.setAttribute("type", "text/javascript");
         scriptEle.setAttribute("async", async);
-      
+
         document.body.appendChild(scriptEle);
-      
+
         // success event 
         scriptEle.addEventListener("load", () => {
           console.log("File loaded")
         });
-         // error event
+        // error event
         scriptEle.addEventListener("error", (ev) => {
           console.log("Error on loading file", ev);
         });
-
       }
 
       loadJS(src, true);
     })
-
-    console.log("hello")
   });
 }
